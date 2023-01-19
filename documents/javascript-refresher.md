@@ -60,7 +60,7 @@ So just in case the differnt:
 
 ## Arrow Functions
 
-### <mark class="header">this</mark> Keyword
+### **<mark class="header">this</mark> Keyword**
 
 <mark>this</mark> keyword is one of the most used keywords in JavaScript. But when it comes to regular functions and arrow functions, it behaves in entirely different ways.
 
@@ -139,7 +139,7 @@ You don't need to use workarounds like const self = <mark>this</mark> or callbac
 
 <hr/>
 
-## <mark class="header">Arguments Object.</mark>
+### **<mark class="header">Arguments Object.</mark>**
 
 In regular JavaScript functions, arguments keywords can be used to access the passed arguments when the function is invoked.
 
@@ -189,7 +189,7 @@ result:
 
 <hr/>
 
-## <mark class="header">Constructors / **new** keyword</mark>
+### **<mark class="header">Constructors / **new** keyword</mark>**
 
 As well know, we can easily construct objects with regular functions. We just need to invoke the function with the <mark>new</mark> keyword.
 
@@ -205,7 +205,7 @@ However, arrow functions <mark>can not be used as constructors</mark>.
 
 <hr/>
 
-## <mark class="header">Implicit return</mark>
+### **<mark class="header">Implicit return</mark>**
 
 In regular functions, we can use the <mark>return</mark> keyword to return any value from a function. If we don’t return anything, the function will implicitly return <mark>undefined</mark>.
 
@@ -239,3 +239,70 @@ result: 11
 you might feel that arrow functions are better than regular functions. But, that’s not true for all cases, and there are some situations you should avoid using arrow functions.
 
 > It is recommended to use regular functions when dealing with Promises, Callback functions with dynamic context, and Object methods.
+
+## **<mark class="header">Function Declarations vs. Function Expressions</mark>**
+
+### What is a Function Expression?
+
+- A JavaScript function can also be defined using an <mark>expression</mark>.
+- A function expression <mark>can be stored in a variable</mark>:
+
+<pre>
+var x = function (a, b) {return a * b};
+</pre>
+
+After a function expression has been stored in a variable, the variable can be used as a function. Functions stored in variables do not need function names. They are always invoked (called) using the variable name.
+
+<pre>
+Example: <mark>Function Expression</mark>
+alert(foo()); // ERROR! foo wasn't loaded yet
+var foo = function() { return 5; }
+--------------------------------------------------------------------
+
+Example: <mark>Function Declaration</mark>
+alert(foo()); // Alerts 5. Declarations are loaded before any code can run.
+function foo() { return 5; }
+</pre>
+
+- Function declarations <mark>load before any code is executed</mark> while Function expressions load only when the interpreter reaches that line of code.
+- Similar to the var statement, function declarations are hoisted to the top of other code. Function expressions aren’t hoisted, which allows them to retain a copy of the local variables from the scope where they were defined.
+
+<br/>
+
+## **<mark class="header">Export & Import (Modules)</mark>**
+### export, imports default   
+Imports default and ONLY export of the file Name in the receiving file is up to you:
+
+<pre>
+// person.js
+const person = {
+  name: 'Max'
+}
+
+<mark><strong>export</strong></mark> default person
+--------------------------------------------------------------------
+// utility.js
+<mark><strong>export</strong></mark> const clean = () => {...}
+<mark><strong>export</strong></mark> const baseData = 10;
+--------------------------------------------------------------------
+// app.js
+<mark><strong>import</strong></mark> person from './person.js'
+<mark><strong>import</strong></mark> prs from './person.js'
+
+<mark><strong>import</strong></mark> { baseData } from './utility.js'
+<mark><strong>import</strong></mark> { clean } from './utility.js'
+</pre>
+
+### export & import Example
+default export:
+<pre>
+import person from './person.js'
+import prs from './person.js'
+</pre>
+
+named export 
+<pre>
+import { smth } from './utility.js'
+import { smth as Smth } from './utility.js'
+import * as bundled from './utility.js'
+</pre>
