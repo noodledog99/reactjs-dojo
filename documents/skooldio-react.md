@@ -21,3 +21,20 @@
 > <mark>Declarative approach</mark> — “ขอข้าวยำไก่แซ่บหนึ่งจานครับ”
 
 # React Concepts and Features
+
+## **<mark class="header">Main concept</mark>**
+Concept หลักของ React — <mark>UI เป็น Function ของ State</mark> นั่นหมายความว่าถ้าเราใส่ Input อะไรเข้าไปเราก็จะได้ Output เหมือนเดิมเสมอ
+
+  ![](/documents/images/concept-react.PNG)
+  <center><i>Concept React</i></center>
+  <br/>
+
+  ![](/documents/images/botton-state.PNG)
+  <center><i>ตัวอย่าง Botton S</i></center>
+  <br/>
+
+## **<mark class="header">JSX</mark>**
+JSX(JavaScript XML) — ทำให้เราสามารถเขียน HTML อยู่ใน JavaScript ได้เลย 
+
+  ![](/documents/images/jsx.PNG)
+  <br/>
